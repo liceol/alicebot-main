@@ -84,7 +84,7 @@ const vcard = 'BEGIN:VCARD\n' // metadata of the contact card
             + 'END:VCARD'
 /******END OF VCARD INPUT******/
 
-prefix = '/'
+prefix = '.'
 blocked = []
 
 /******BEGIN OF FUNCTIONS INPUT******/
@@ -198,7 +198,7 @@ async function starts() {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Oiin @${num.split('@')[0]}\nBem vindo ao grupo *${mdata.subject}* Leia a descrição por favor👺🤝`
+				teks = `Oiin @${num.split('@')[0]}\nBem vindo ao grupo *${mdata.subject}* Leia a descrição por favor🤝`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			} else if (anu.action == 'remove') {
@@ -246,7 +246,7 @@ async function starts() {
 			const isCmd = body.startsWith(prefix)
 
 			mess = {
-				wait: '⌛ aguarde ser humaninho 👺⌛',
+				wait: '⌛ aguarde ⌛',
 				success: '✔️ Sucesso ✔️',
                                 levelon: '❬ ✔ ❭ *habilitar Level*',
 				leveloff: ' ❬ X ❭  *desabilitar Level*',
@@ -258,7 +258,7 @@ async function starts() {
 				},
 				only: {
 					group: '[❗] Este comando só pode ser usado em grupos! ❌',
-					ownerG: '[❗] Este comando só pode ser usado pelo grupo proprietário!(Alice 😌) ❌',
+					ownerG: '[❗] Este comando só pode ser usado pelo grupo proprietário!(Alice) ❌',
 					ownerB: '[❗] Este comando só pode ser usado por Alice! ❌',
 					admin: '[❗] Este comando só pode ser usado por administradores de grupo! ❌',
 					Badmin: '[❗] Este comando só pode ser usado quando o bot se torna administrador! ❌',
@@ -467,7 +467,7 @@ case 'timer':
                 break
               case 'owner':
                 case 'creator':
-                  client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: mek})
+                  client.sendMessage(from, {displayname: "Alice", vcard: vcard}, MessageType.contact, { quoted: mek})
                client.sendMessage(from, 'Aqui está o número do meu dono, salve depois',MessageType.text, { quoted: mek} )
                 break
 	case 'hidetag':
@@ -892,7 +892,7 @@ case 'timer':
 					enmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await client.downloadAndSaveMediaMessage(enmedia)
 					await client.updateProfilePicture(botNumber, media)
-					reply('Obrigado pelo novo perfil😗')
+					reply('Obrigado pelo novo perfil')
 					break
 				case 'bc':
 					client.updatePresence(from, Presence.composing) 
@@ -964,7 +964,7 @@ case 'timer':
 					}, 0)
                      setTimeout( () => {
 					client.updatePresence(from, Presence.composing) 
-					client.sendMessage(from, 'Sayonara👋', text) // ur cods
+					client.sendMessage(from, 'Adeus', text) // ur cods
 					}, 0)
                      break
 
@@ -1020,7 +1020,7 @@ case 'timer':
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-					if (args.length < 1) return reply('Yang mau di add jin ya?')
+					if (args.length < 1) return reply('O que você quer adicionar ao gênio?')
 					if (args[0].startsWith('08')) return reply('Use o código do país')
 					try {
 						num = `${args[0].replace(/ /g, '')}@s.whatsapp.net`
@@ -1092,7 +1092,7 @@ case 'timer':
 								fs.unlinkSync(media)
 							})
 					} else {
-						reply('Foto aja mas')
+						reply('Foto')
 					}
 					break
 
@@ -1283,7 +1283,7 @@ case 'timer':
                 	case 'tomp3':
                 	client.updatePresence(from, Presence.composing) 
                         if (!isUser) return reply(mess.only.daftarB)
-					if (!isQuotedVideo) return reply('❌ responder vídeo hum ❌')
+					if (!isQuotedVideo) return reply('❌ responder vídeo ❌')
 					reply(mess.wait)
 					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await client.downloadAndSaveMediaMessage(encmedia)
@@ -1433,11 +1433,11 @@ case 'timer':
 					break
                                 case 'nsfwneko':
 				    try{
-						if (!isNsfw) return reply('❌ *NSFW NAUM ATIVADO* ❌')
+						if (!isNsfw) return reply('❌ *NSFW NAO ATIVADO* ❌')
                                                 if (!isUser) return reply(mess.only.daftarB)
 						res = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwneko?apikey=BotWeA`, {method: 'get'})
 						buffer = await getBuffer(res.result)
-						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'mesum'})
+						client.sendMessage(from, buffer, image, {quoted: mek, caption: 'desagradável'})
 					} catch (e) {
 						console.log(`Error :`, color(e,'red'))
 						reply('❌ *ERROR* ❌')
@@ -1552,15 +1552,15 @@ case 'timer':
 					client.sendMessage(from, buffer, image, {quoted: mek})
 					break
                 case 'truth':
-					const trut =['Pernah suka sama siapa aja? berapa lama?','Kalau boleh atau kalau mau, di gc/luar gc siapa yang akan kamu jadikan sahabat?(boleh beda/sma jenis)','apa ketakutan terbesar kamu?','pernah suka sama orang dan merasa orang itu suka sama kamu juga?','Siapa nama mantan pacar teman mu yang pernah kamu sukai diam diam?','pernah gak nyuri uang nyokap atau bokap? Alesanya?','hal yang bikin seneng pas lu lagi sedih apa','pernah cinta bertepuk sebelah tangan? kalo pernah sama siapa? rasanya gimana brou?','pernah jadi selingkuhan orang?','hal yang paling ditakutin','siapa orang yang paling berpengaruh kepada kehidupanmu','hal membanggakan apa yang kamu dapatkan di tahun ini','siapa orang yang bisa membuatmu sange','siapa orang yang pernah buatmu sange','(bgi yg muslim) pernah ga solat seharian?','Siapa yang paling mendekati tipe pasangan idealmu di sini','suka mabar(main bareng)sama siapa?','pernah nolak orang? alasannya kenapa?','Sebutkan kejadian yang bikin kamu sakit hati yang masih di inget','pencapaian yang udah didapet apa aja ditahun ini?','kebiasaan terburuk lo pas di sekolah apa?']
+					const trut =['Você já gostou de alguém? quanto tempo?','Se você puder ou se quiser, com qual gc/fora do gc você faria amizade? (talvez diferente/mesmo sexo)','Qual é o seu maior medo?','Você já gostou de alguém e sentiu gosta dessa pessoa? você também gosta de você?','Qual é o nome da ex-namorada do seu amigo que você gostava secretamente?','Você já roubou dinheiro da sua mãe ou do seu pai? O motivo?','O que te deixa feliz quando você está triste','Você já teve um amor unilateral? se sim quem? Como se sente mano?','Você já esteve com outra pessoa?','Qual é a coisa mais temida','Quem é a pessoa mais influente em sua vida','Que coisa orgulhosa você ganhou este ano' ,'Quem é a pessoa que pode te fazer muito feliz? ','Quem já te fez muito feliz','(para os muçulmanos) você já deixou de orar o dia todo?','Quem está mais próximo do seu tipo ideal de parceiro aqui','Com quem você gosta de brincar?','Já rejeitou as pessoas? qual é o motivo?', 'Cita um incidente que te fez sofrer que você ainda se lembra', 'que conquistas você obteve este ano?', 'Qual era o seu pior hábito na escola?']
 					const ttrth = trut[Math.floor(Math.random() * trut.length)]
 					truteh = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
 					client.sendMessage(from, truteh, image, { caption: '*Truth*\n\n'+ ttrth, quoted: mek })
 					break
                                 case 'dare':
-					const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot "ðŸ¦„ðŸ’¨" setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
+					const dare =['Mande uma mensagem para o seu ex e diga "eu ainda gosto de você", 'ligue para sua paixão/namorada agora e mande uma mensagem para o jogador', 'pap para um membro do grupo', 'diga "VOCÊ É TÃO LINDO NÃO MENTIRA" para os caras ',' ss recente chamada whatsapp','solte o emote "ðŸ¦„ðŸ'¨" toda vez que digitar no gc/pc por 1 dia','envie uma nota de voz dizendo posso ligar para você, baby?','solte a citação da música/ citação, continue marcando o membro que é adequado para a citação','usou a foto de Sule por 3 dias','digitou no idioma local 24 horas','mudou o nome para "Eu sou um filho de lucinta luna" por 5 horas',' converse com seu contato na ordem %batre you, continue dizendo a ele "tenho sorte de hv you', 'converse com o ex e diga" eu te amo, pgn volte', 'grave voz leia surah al-kautsar', 'diga "eu tenho uma queda por você, quero ser meu namorado ou não?" para a última pessoa do sexo oposto que você conversou (envie no wa/tele), espere ele responder, quando terminar, solte aqui' , 'mencione seu tipo de namorado!', 'tirar/postar foto da namorada/paixão', 'gritar claramente e enviar usando vn aqui', 'pap seu rosto e enviar para um de seus amigos ','Envie sua foto com a legenda, sou filho adotivo','Grite com palavras duras enquanto vn depois mande aqui','Gritando "anjimm gabutt anjimmm" na frente da sua casa','mude o nome para " BOWO" por 24 horas', 'Fingindo estar possuído, por exemplo: possuído por maung, possuído por gafanhotos, possuído por geladeira, etc.']
 					const der = dare[Math.floor(Math.random() * dare.length)]
-					tod = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
+					tod = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`
 					client.sendMessage(from, tod, image, { quoted: mek, caption: '*Dare*\n\n'+ der })
 					break	
                 case 'level':
@@ -1650,7 +1650,7 @@ case 'timer':
 							if (!isNsfw) return reply('❌ *NSFW Desativado* ❌')
 							res = await fetchJson(`https://meme-api.herokuapp.com/gimme/biganimetiddies`, {method: 'get'})
 							buffer = await getBuffer(res.url)
-							client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Tai os peitos que vc queria\npunhetero de merda'})
+							client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Tai os peitos que vc queria'})
 						} catch (e) {
 							console.log(`Error :`, color(e,'red'))
 							reply('❌ *ERROR* ❌')
@@ -1760,7 +1760,7 @@ case 'timer':
 							if (!isNsfw) return reply('❌ *NSFW Desativado* ❌')
 							res = await fetchJson(`https://tobz-api.herokuapp.com/nsfwtrap?apikey=BotWeA`, {method: 'get'})
 							buffer = await getBuffer(res.url)
-							client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Tai os peitos que vc queria\npunhetero de merda'})
+							client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Tai os peitos que vc queria'})
 						} catch (e) {
 							console.log(`Error :`, color(e,'red'))
 							reply('❌ *ERROR* ❌')
@@ -1825,7 +1825,7 @@ case 'timer':
 					break
                                 case 'afk':
                                         tels = body.slice(4)
-                                        if (args.length < 1) return reply('kakak afk karena apa?')
+                                        if (args.length < 1) return reply('kakak aff para que?')
                                         if (!isUser) return reply(mess.only.daftarB)
                                         var nom = mek.participant
                                         const tag = {
@@ -1961,7 +1961,7 @@ case 'timer':
                                         reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomkpop?apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kpopnya kak...'})
+                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Aqui está o kpop kak...'})
                                         break
                                 case 'fml2':
                                         getauda = body.slice(6)
@@ -1971,7 +1971,7 @@ case 'timer':
                                         reply(hasil)
                                         break
                                 case 'tiktok':
-					if (args.length < 1) return reply('Urlnya mana um?')
+					if (args.length < 1) return reply('Url nya mana um?')
 					if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.error.Iv)
 					reply(mess.wait)
 					anu = await fetchJson(`https://mhankbarbar.tech/api/tiktok?url=${args[0]}&apiKey=${BarBarKey}`, {method: 'get'})
@@ -1994,7 +1994,7 @@ case 'timer':
 					})
 					break
                                 case 'clearall':
-					if (!isOwner) return reply('Kamu siapa?')
+					if (!isOwner) return reply('Quem é Você?')
 					anu = await client.chats.all()
 					client.setMaxListeners(25)
 					for (let _ of anu) {
@@ -2039,7 +2039,7 @@ case 'timer':
 						client.updateProfilePicture(botNumber, buffer)
 						mentions(`Foto profile Berhasil di perbarui menggunakan foto profile @${id.split('@')[0]}`, [jid], true)
 					} catch (e) {
-						reply('Gagal om')
+						reply('Fracassado')
 					}
 					break
                                 /*case 'magernulis':
@@ -2061,7 +2061,7 @@ case 'timer':
                                         if (!isUser) return reply(mess.only.daftarB)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=pubg&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih logonya kak...'})
+                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Aqui está o logotipo kak...'})
                                         break
                                 case 'herrypotter':
                                 case 'harrypotter':
@@ -2070,7 +2070,7 @@ case 'timer':
                                         if (!isUser) return reply(mess.only.daftarB)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=harry_potter&text=${gh}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak gambarnya...'})
+                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Aqui está a foto...'})
                                         break
 			 	case 'wait':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
@@ -2084,7 +2084,7 @@ case 'timer':
 							reply(err)
 		      				})
 					} else {
-						reply('Mi mama senor?')
+						reply('Minha mãe, senhor?')
 					}
 					break
 				default:
